@@ -1,0 +1,84 @@
+<div class="parent">
+    <h1>SpaceX Launch Programs</h1>
+    <div class="container">
+        <div class="filter">
+            <h3>Filters</h3>
+            <div class="filer-body">
+                <p class="filter-head">Launch Year</p>
+                <hr class="filter-hr">
+                <div class="filter-ele" *ngFor="let year of launchYears">
+                    <div
+                        (click)="selectYear(year)"
+                        [ngClass]="{'selected-filter': launchYear==year}"
+                    >{{year}}</div>
+                </div>
+            </div>
+            <div class="filer-body">
+                <p class="filter-head">Successful Launch</p>
+                <hr class="filter-hr">
+                <div class="filter-ele">
+                    <div
+                        (click)="sucessLaunch=true; getData()"
+                        [ngClass]="{'selected-filter': sucessLaunch==true}"
+                    >True</div>
+                </div>
+                <div class="filter-ele">
+                    <div
+                        (click)="sucessLaunch=false; getData()"
+                        [ngClass]="{'selected-filter': sucessLaunch==false}"
+                    >False</div>
+                </div>
+            </div>
+            <div class="filer-body">
+                <p class="filter-head">Successful Landing</p>
+                <hr class="filter-hr">
+                <div class="filter-ele">
+                    <div
+                        (click)="sucessLand=true; getData()"
+                        [ngClass]="{'selected-filter': sucessLand==true}"
+                    >True</div>
+                </div>
+                <div class="filter-ele">
+                    <div
+                        (click)="sucessLand=false; getData()"
+                        [ngClass]="{'selected-filter': sucessLand==false}"
+                    >False</div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="programs">
+            <div *ngFor="let p of programs" class="program-container">
+                <div class="logo-container">
+                    <img [src]="p.links.mission_patch_small">
+                </div>
+                <div class="program-info">
+                    <div>
+                        <label class="info-label color-violet">{{p.mission_name}} #{{p.flight_number}}</label>
+                    </div>
+                    <div class="info-sec">
+                        <div>
+                            <label *ngIf="p.mission_id.length>0" class="info-label">Mission ids</label>
+                            <ul>
+                                <li *ngFor="let ids of p.mission_id">{{ids}}</li>
+                            </ul>
+                        </div>
+                        <div class="info-sub-sec">
+                            <label class="info-label">Launch Year:</label>
+                            <span> {{p.launch_year}}</span>
+                        </div>
+                        <div class="info-sub-sec">
+                            <label class="info-label">Successful Launch:</label>
+                            <span> {{p.launch_success}}</span>
+                        </div>
+                        <div class="info-sub-sec">
+                            <label class="info-label">Successful Landing:</label>
+                            <span> {{p.rocket.first_stage.cores[0].landing_intent}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
