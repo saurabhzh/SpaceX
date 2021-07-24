@@ -2,7 +2,7 @@
     <h1>SpaceX Launch Programs</h1>
     <div class="container">
         <div class="filter">
-            <h3>Filters</h3>
+            <h2>Filters</h2>
             <div class="filer-body">
                 <p class="filter-head">Launch Year</p>
                 <hr class="filter-hr">
@@ -51,7 +51,7 @@
         <div class="programs">
             <div *ngFor="let p of programs" class="program-container">
                 <div class="logo-container">
-                    <img [src]="p.links.mission_patch_small">
+                    <img [src]="p.links.mission_patch_small" alt="Launch Logo">
                 </div>
                 <div class="program-info">
                     <div>
