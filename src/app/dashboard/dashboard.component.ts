@@ -22,14 +22,14 @@ export class DashboardComponent implements OnInit {
 		for (let i = 2006; i < 2021; i++) {
 			this.launchYears.push(i);
 		}
-		if (sessionStorage.launchYear) {
+		if (sessionStorage.launchYear != 'NaN') {
 			this.launchYear = sessionStorage.launchYear;
 		}
-		if (sessionStorage.sucessLaunch) {
-			this.sucessLaunch = sessionStorage.sucessLaunch;
+		if (JSON.parse(sessionStorage.sucessLaunch)) {
+			this.sucessLaunch = JSON.parse(sessionStorage.sucessLaunch);
 		}
-		if (sessionStorage.sucessLand) {
-			this.sucessLand = sessionStorage.sucessLand;
+		if (JSON.parse(sessionStorage.sucessLand)) {
+			this.sucessLand = JSON.parse(sessionStorage.sucessLand);
 		}
 		this.getData();
 	}
