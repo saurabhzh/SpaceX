@@ -25,10 +25,10 @@ export class DashboardComponent implements OnInit {
 		if (sessionStorage.launchYear != 'NaN') {
 			this.launchYear = sessionStorage.launchYear;
 		}
-		if (JSON.parse(sessionStorage.sucessLaunch)) {
+		if (sessionStorage.sucessLaunch && JSON.parse(sessionStorage.sucessLaunch)) {
 			this.sucessLaunch = JSON.parse(sessionStorage.sucessLaunch);
 		}
-		if (JSON.parse(sessionStorage.sucessLand)) {
+		if (sessionStorage.sucessLaunch && JSON.parse(sessionStorage.sucessLand)) {
 			this.sucessLand = JSON.parse(sessionStorage.sucessLand);
 		}
 		this.getData();
